@@ -1,57 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>L'Oréal — Smart Product Advisor</title>
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <div class="brand-row">
+          <img src="img/loreal-logo.png" alt="L'Oréal" class="brand-logo" />
+          <div class="brand-text">
+            <h1 class="site-title">Smart Product Advisor</h1>
+            <p class="site-tagline">
+              Discover products, personalised routines, and expert tips
+            </p>
+          </div>
+        </div>
       </header>
 
-      <!------- Chat Area ------->
       <main>
         <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
-          </div>
+          <div class="panel">
+            <div class="panel-left">
+              <h2 class="panel-title">Find the right L'Oréal products</h2>
+              <p class="panel-sub">
+                Makeup, skincare, haircare &amp; fragrances — tailored routines
+                and expert tips.
+              </p>
+            </div>
 
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
-            </button>
-          </form>
+            <div class="panel-right">
+              <!-- Latest user question (replaced on each submission) -->
+              <div
+                id="latestQuestion"
+                class="latest-question"
+                aria-hidden="true"
+              ></div>
+
+              <div
+                id="chatWindow"
+                class="chat-window"
+                role="log"
+                aria-live="polite"
+              >
+                <!-- conversation bubbles appended here -->
+              </div>
+
+              <form
+                id="chatForm"
+                class="chat-form"
+                aria-label="Chat with L'Oréal advisor"
+              >
+                <label for="userInput" class="visually-hidden">Message</label>
+                <input
+                  id="userInput"
+                  name="userInput"
+                  type="text"
+                  placeholder="Ask me about products or routines…"
+                  autocomplete="off"
+                  required
+                />
+                <button type="submit" id="sendBtn" aria-label="Send message">
+                  <span class="material-icons">send</span>
+                </button>
+              </form>
+            </div>
+          </div>
         </section>
       </main>
 
-      <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
-          <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
@@ -59,8 +92,6 @@
       </footer>
     </div>
 
-    <!-- secrets.js can be removed when using Cloudflare Workers for API requests -->
-    <script src="secrets.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
